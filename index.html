@@ -21,6 +21,30 @@
 				var stringtolog2 = 'Teacher / Administrator has deducted ' + points + ' from student ' + StudentLastName + ', ' + StudentFirstName;
 				alert(stringtolog1)
 				console.log(stringtolog2)
+<!DOCTYPE html>
+
+<html>
+	<header>
+		<script>
+			let StudentFirstName = '';
+			let StudentLastName = '';
+			let StudentGrade = 100;
+			let StudentLetterGrade = 'A+';
+			let ClassName = '';
+			const whileLoopEnabled = true; 
+			function addPoints(points) {
+				StudentGrade += points
+				var stringtolog1 = 'You have added points to student ' + StudentLastName + ', ' + StudentFirstName + '. Points added: ' + points + '.';
+				var stringtolog2 = 'Teacher / Administrator has added ' + points + ' to student ' + StudentLastName + ', ' + StudentFirstName;
+				alert(stringtolog1)
+				console.log(stringtolog2)
+			}
+			function takePoints(points) {
+				StudentGrade -= points
+				var stringtolog1 = 'You have deducted points from student ' + StudentLastName + ', ' + StudentFirstName + '. Points deducted: ' + points + '.';
+				var stringtolog2 = 'Teacher / Administrator has deducted ' + points + ' from student ' + StudentLastName + ', ' + StudentFirstName;
+				alert(stringtolog1)
+				console.log(stringtolog2)
 			}
 			while (whileLoopEnabled == true) {
 				if (StudentGrade >= 98) {
@@ -48,7 +72,7 @@
 					StudentLetterGrade = 'C'
 				}
 				if (StudentGrade >= 70) {
-					StudentLetterGrade = 'C-'
+				￼￼	StudentLetterGrade = 'C-'
 				}
 				if (StudentGrade >= 67) {
 					StudentLetterGrade = 'D+'
@@ -65,6 +89,9 @@
 				if (StudentGrade > 100) {
 					StudentGrade = 100
 				}
+				const GradeBox = document.getElementById("GradeBox");
+				const GradeBoxValue = GradeBox.Value;
+				GradeBoxValue = StudentLetterGrade
 			}
 		</script>
 		Welcome to to the Polaris School Administration system.
@@ -76,6 +103,10 @@
 	</style>
 	
 	<p>
-		
+		Student Name: <input id='studentNameBox' type='text'/>
+		Points: <input id='pointsBox' type='text'/>
+		<button onclick=addPoints();>Add points to student</button>
+		<button onclick=takePoints();>Deduct points from student</button>
+		<input id='GradeBox' type='text' disabled/>
 	</p>
 </html>
