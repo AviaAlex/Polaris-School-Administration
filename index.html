@@ -1,105 +1,81 @@
 <!DOCTYPE html>
+
 <html>
 	<header>
 		<script>
-			var StudentName = "Alex";
-			var StudentGrade = 100;
-			
+			let StudentFirstName = '';
+			let StudentLastName = '';
+			let StudentGrade = 100;
+			let StudentLetterGrade = 'A+';
+			const whileLoopEnabled = true; 
+			function addPoints(points) {
+				StudentGrade += points
+				var stringtolog1 = 'You have added points to student ' + StudentLastName + ', ' + StudentFirstName + '. Points added: ' + points + '.';
+				var stringtolog2 = 'Teacher / Administrator has added ' + points + ' to student ' + StudentLastName + ', ' + StudentFirstName;
+				alert(stringtolog1)
+				console.log(stringtolog2)
+			}
 			function takePoints(points) {
 				StudentGrade -= points
-				var stringtolog = 'Points deducted from student ' + StudentName + '. Points deducted: ' + points + ' points.'
-				console.log(stringtolog)
-				var stringtolog2 = 'You have deducted ' + points + ' from ' + StudentName + '.'
-				alert(stringtolog2)
+				var stringtolog1 = 'You have deducted points from student ' + StudentLastName + ', ' + StudentFirstName + '. Points deducted: ' + points + '.';
+				var stringtolog2 = 'Teacher / Administrator has deducted ' + points + ' from student ' + StudentLastName + ', ' + StudentFirstName;
+				alert(stringtolog1)
+				console.log(stringtolog2)
 			}
-			
-			function addPoints(points) {
-				StudentGrade -= points
-				var stringtolog = 'Points added from student ' + StudentName + '. Points added: ' + points + ' points.'
-				console.log(stringtolog)
-				var stringtolog2 = 'You have added ' + points + ' from ' + StudentName + '.'
-				alert(stringtolog2)
+			while (whileLoopEnabled == true) {
+				if (StudentGrade >= 98) {
+					StudentLetterGrade = 'A+'
+				}
+				if (StudentGrade >= 92) {
+					StudentLetterGrade = 'A'
+				}
+				if (StudentGrade >= 90) {
+					StudentLetterGrade = 'A-'
+				}
+				if (StudentGrade >= 87) {
+					StudentLetterGrade = 'B+'
+				}
+				if (StudentGrade >= 82) {
+					StudentLetterGrade = 'B'
+				}
+				if (StudentGrade >= 80) {
+					StudentLetterGrade = 'B-'
+				}
+				if (StudentGrade >= 77) {
+					StudentLetterGrade = 'C+'
+				}
+				if (StudentGrade >= 72) {
+					StudentLetterGrade = 'C'
+				}
+				if (StudentGrade >= 70) {
+					StudentLetterGrade = 'C-'
+				}
+				if (StudentGrade >= 67) {
+					StudentLetterGrade = 'D+'
+				}
+				if (StudentGrade >= 62) {
+					StudentLetterGrade = 'D'
+				}
+				if (StudentGrade >= 60) {
+					StudentLetterGrade = 'D-'
+				}
+				if (StudentGrade < 60) {
+					StudentLetterGrade = 'F'
+				}
+				if (StudentGrade > 100) {
+					StudentGrade = 100
+				}
 			}
-			
-			var letterGrade = "A+";
-			var whileEnabled = true;
-			
-			while (whileEnabled == true) {
-				if StudentGrade >= 98 {
-					letterGrade = "A+"
-				}
-				if StudentGrade >= 93 {
-					letterGrade = "A"
-				}
-				if StudentGrade >= 90 {
-					letterGrade = "A-"
-				}
-				if StudentGrade >= 87 {
-					letterGrade = "B+"
-				}
-				if StudentGrade >= 83 {
-					letterGrade = "B"
-				}
-				if StudentGrade >= 80 {
-					letterGrade = "B-"
-				}
-				if StudentGrade >= 77 {
-					letterGrade = "C+"
-				}
-				if StudentGrade >= 73 {
-					letterGrade = "C"
-				}
-				if StudentGrade >= 70 {
-					letterGrade = "C-"
-				}
-				if StudentGrade >= 67 {
-				    letterGrade = "D+"
-				}
-				if StudentGrade >= 63 {
-					letterGrade = "D"
-				}
-				if StudentGrade >= 60 {
-				 	letterGrade = "D-"
-				}
-				if StudentGrade <= 59 {
-					letterGrade = "F"
-				}
-				
-				var studentNamevar = document.getElementById("studentNameBox");
-				var StudentNameText = studentNamevar.Value;
-				
-				StudentName = studentNamevar
-				
-				var Pointvar = document.getElementById("PointsBox");
-				var PointText = Pointvar.Value;
-				
-				var DataToSave = StudentName, StudentGrade;
-				
-				localStorage.setItem("StudentInfo", DataToSave)
-				
-			}
-			
-			var data = localStorage.getItem("StudentInfo")
 		</script>
-		
-		<style>
-			body {
-				background-color: #0091FF;
-			}
-		</style>
-		
-		Welcome to the Polaris Administration Panel. (Dev Build 0.0.1 ALPHA)
+		Welcome to to the Polaris School Administration system.
 	</header>
+	<style>
+		body {
+			background-color: #0091FF;
+		}
+	</style>
+	
 	<p>
-		Student Name: <input id="studentNameBox" type="text"/>
-		<br>
-			Points: <input id="PointsBox" type="text"/>
-		</br>
-		<br>
-			<button onclick=addPoints()>Add points to student</button>
-		</br>
-		<br>
-			<button onclick=takePoints()>Take points from student</button>
-		</br>
+		
 	</p>
 </html>
