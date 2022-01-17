@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<header>
+		<script>
+			var StudentName = "Alex";
+			var StudentGrade = 100;
+			
+			function takePoints(points) {
+				StudentGrade -= points
+				var stringtolog = 'Points deducted from student ' + StudentName + '. Points deducted: ' + points + ' points.'
+				console.log(stringtolog)
+				var stringtolog2 = 'You have deducted ' + points + ' from ' + StudentName + '.'
+				alert(stringtolog2)
+			}
+			
+			function addPoints(points) {
+				StudentGrade -= points
+				var stringtolog = 'Points added from student ' + StudentName + '. Points added: ' + points + ' points.'
+				console.log(stringtolog)
+				var stringtolog2 = 'You have added ' + points + ' from ' + StudentName + '.'
+				alert(stringtolog2)
+			}
+			
+			var letterGrade = "A+";
+			var whileEnabled = true;
+			
+			while (whileEnabled == true) {
+				if StudentGrade >= 98 {
+					letterGrade = "A+"
+				}
+				if StudentGrade >= 93 {
+					letterGrade = "A"
+				}
+				if StudentGrade >= 90 {
+					letterGrade = "A-"
+				}
+				if StudentGrade >= 87 {
+					letterGrade = "B+"
+				}
+				if StudentGrade >= 83 {
+					letterGrade = "B"
+				}
+				if StudentGrade >= 80 {
+					letterGrade = "B-"
+				}
+				if StudentGrade >= 77 {
+					letterGrade = "C+"
+				}
+				if StudentGrade >= 73 {
+					letterGrade = "C"
+				}
+				if StudentGrade >= 70 {
+					letterGrade = "C-"
+				}
+				if StudentGrade >= 67 {
+				    letterGrade = "D+"
+				}
+				if StudentGrade >= 63 {
+					letterGrade = "D"
+				}
+				if StudentGrade >= 60 {
+				 	letterGrade = "D-"
+				}
+				if StudentGrade <= 59 {
+					letterGrade = "F"
+				}
+				
+				var studentNamevar = document.getElementById("studentNameBox");
+				var StudentNameText = studentNamevar.Value;
+				
+				StudentName = studentNamevar
+				
+				var Pointvar = document.getElementById("PointsBox");
+				var PointText = Pointvar.Value;
+				
+				var DataToSave = StudentName, StudentGrade;
+				
+				localStorage.setItem("StudentInfo", DataToSave)
+				
+			}
+			
+			var data = localStrae.getItem("StudentInfo")
+		</script>
+		
+		<style>
+			body {
+				background-color: #0091FF;
+			}
+		</style>
+		
+		Welcome to the Polaris Administration Panel. (Dev Build 0.0.1 ALPHA)
+	</header>
+	<p>
+		Student Name: <input id="studentNameBox" type="text"/>
+		<br>
+			Points: <input id="PointsBox" type="text"/>
+		</br>
+		<br>
+			<button onclick=addPoints()>Add points to student</button>
+		</br>
+		<br>
+			<button onclick=takePoints()>Take points from student</button>
+		</br>
+	</p>
+</html>
