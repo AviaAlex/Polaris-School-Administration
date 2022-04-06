@@ -7,29 +7,6 @@
 			let StudentLastName = '';
 			let StudentGrade = 100;
 			let StudentLetterGrade = 'A+';
-			const whileLoopEnabled = true; 
-			function addPoints(points) {
-				StudentGrade += points
-				var stringtolog1 = 'You have added points to student ' + StudentLastName + ', ' + StudentFirstName + '. Points added: ' + points + '.';
-				var stringtolog2 = 'Teacher / Administrator has added ' + points + ' to student ' + StudentLastName + ', ' + StudentFirstName;
-				alert(stringtolog1)
-				console.log(stringtolog2)
-			}
-			function takePoints(points) {
-				StudentGrade -= points
-				var stringtolog1 = 'You have deducted points from student ' + StudentLastName + ', ' + StudentFirstName + '. Points deducted: ' + points + '.';
-				var stringtolog2 = 'Teacher / Administrator has deducted ' + points + ' from student ' + StudentLastName + ', ' + StudentFirstName;
-				alert(stringtolog1)
-				console.log(stringtolog2)
-<!DOCTYPE html>
-
-<html>
-	<header>
-		<script>
-			let StudentFirstName = '';
-			let StudentLastName = '';
-			let StudentGrade = 100;
-			let StudentLetterGrade = 'A+';
 			let ClassName = '';
 			const whileLoopEnabled = true; 
 			function addPoints(points) {
@@ -72,7 +49,7 @@
 					StudentLetterGrade = 'C'
 				}
 				if (StudentGrade >= 70) {
-				￼￼	StudentLetterGrade = 'C-'
+					StudentLetterGrade = 'C-'
 				}
 				if (StudentGrade >= 67) {
 					StudentLetterGrade = 'D+'
@@ -90,8 +67,19 @@
 					StudentGrade = 100
 				}
 				const GradeBox = document.getElementById("GradeBox");
-				const GradeBoxValue = GradeBox.Value;
-				GradeBoxValue = StudentLetterGrade
+				
+				GradeBox.value = StudentLetterGrade
+				
+			}
+			
+			function saveStudentData() {
+				let myData = window.localStorage;
+				localStorage.setItem("StudentLetterGrade", StudentLetterGrade)
+				localStorage.setItem("StudentGrade", StudentGrade)
+				localStorage.setItem("StudentFirstName", StudentFirstName)
+				localStorage.setItem("StudentLastName", StudentLastName)
+				console.log("Saved student data to client!")
+				alert("Student data has been saved.")
 			}
 		</script>
 		Welcome to to the Polaris School Administration system.
