@@ -3,21 +3,24 @@
 <html>
 	<header>
 		<script>
-			let StudentFirstName = '';
-			let StudentLastName = '';
+			let mySavedData = window.localStorage;
+			let StudentFirstName = document.getElementById("studentFirstNameBox").value;
+			let StudentLastName = document.getElementById("studentLastNameBox").value;
 			let StudentGrade = 100;
 			let StudentLetterGrade = 'A+';
 			let ClassName = '';
 			const whileLoopEnabled = true; 
 			function addPoints(points) {
-				StudentGrade += points
+				points = document.getElementById("pointsBox")
+				StudentGrade + points
 				var stringtolog1 = 'You have added points to student ' + StudentLastName + ', ' + StudentFirstName + '. Points added: ' + points + '.';
 				var stringtolog2 = 'Teacher / Administrator has added ' + points + ' to student ' + StudentLastName + ', ' + StudentFirstName;
 				alert(stringtolog1)
 				console.log(stringtolog2)
 			}
 			function takePoints(points) {
-				StudentGrade -= points
+				points = document.getElementById("pointsBox")
+				StudentGrade - points
 				var stringtolog1 = 'You have deducted points from student ' + StudentLastName + ', ' + StudentFirstName + '. Points deducted: ' + points + '.';
 				var stringtolog2 = 'Teacher / Administrator has deducted ' + points + ' from student ' + StudentLastName + ', ' + StudentFirstName;
 				alert(stringtolog1)
@@ -91,7 +94,8 @@
 	</style>
 	
 	<p>
-		Student Name: <input id='studentNameBox' type='text'/>
+		Student First Name: <input id='studentFirstNameBox' type='text'/>
+		Student Last Name: <input id='studentLastNameBox' type='text'/>
 		Points: <input id='pointsBox' type='text'/>
 		<button onclick=addPoints();>Add points to student</button>
 		<button onclick=takePoints();>Deduct points from student</button>
