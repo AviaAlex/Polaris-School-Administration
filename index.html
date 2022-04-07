@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function createClass(className, classPassword) {
+        let mySavedData = window.localStorage;
+        localStorage.setItem("className", className)
+        localStorage.setItem("classPassword", classPassword)
+        alert("Class successfully created with the name " + className + " and the password " + classPassword + ".")
+      }
+      function loginToClass() {
+        let mySavedData = window.localStorage;
+        if (localStorage.getItem("className") == document.getElementById("classBox").value && localStorage.getItem("classPassword") == document.getElementById("passBox").value) {
+          location.assign("classmenu")
+      }
+       alert("Class name or password is incorrect!")
+    </script>
+    <title>Polaris School Administration</title>
+  </head>
+  <body>
+    <p style=font-family:verdana>
+      Welcome to Polaris School Administration! <br/>
+      You may sign on or create a class to manage your students grades and such. <br/>
+      <input id="classBox" type="text"/> Input class name here. <br/>
+      <input id ="passBox" type="text"/> Input class password here. <br/>
+      <button type="button" onclick="loginToClass()">Click here to submit and login to class.</button.
+        </p>
+        </body>
+    </html>
+      
