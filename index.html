@@ -2,8 +2,10 @@
 <html>
   <head>
     <script>
-      function createClass(className, classPassword) {
+      function createClass() {
         let mySavedData = window.localStorage;
+        let className = document.getElemenyById("classBoxc").value
+        let classPassword = document.getElemenyById("passBoxc").value
         localStorage.setItem("className", className)
         localStorage.setItem("classPassword", classPassword)
         alert("Class successfully created with the name " + className + " and the password " + classPassword + ".")
@@ -21,9 +23,14 @@
     <p style=font-family:verdana>
       Welcome to Polaris School Administration! <br/>
       You may sign on or create a class to manage your students grades and such. <br/>
+      To login to a class, simply enter class information below.
       <input id="classBox" type="text"/> Input class name here. <br/>
       <input id ="passBox" type="text"/> Input class password here. <br/>
-      <button type="button" onclick="loginToClass()">Click here to submit and login to class.</button.
+      <button type="button" onclick="loginToClass()">Click here to submit and login to class.</button> <br/>
+      To create a class, follow instructions below. <br/>
+      <button id="classCreate()" type="button" onclick="createClass()">Create class.</button> <br/>
+      <input id="classBoxc" type="text"/> Input class name here. <br/>
+      <input id ="passBoxc" type="text"/> Input class password here. <br/>
         </p>
         </body>
     </html>
