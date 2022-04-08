@@ -4,8 +4,8 @@
     <script>
       function createClass() {
         let mySavedData = window.localStorage;
-        let className = document.getElemenyById("classBoxc").value
-        let classPassword = document.getElemenyById("passBoxc").value
+        let className = document.getElementById("classBoxc").value
+        let classPassword = document.getElementById("passBoxc").value
         localStorage.setItem("className", className)
         localStorage.setItem("classPassword", classPassword)
         alert("Class successfully created with the name " + className + " and the password " + classPassword + ".")
