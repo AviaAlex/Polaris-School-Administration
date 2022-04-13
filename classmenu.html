@@ -2,10 +2,11 @@
 
 <html>
 	<header>
+		<title>Polaris School Administration - Class Menu
 		<script>
 			let mySavedData = window.localStorage;
-			let StudentFirstName = document.getElementById("studentFirstNameBox").value;
-			let StudentLastName = document.getElementById("studentLastNameBox").value;
+			let StudentFirstName = ;
+			let StudentLastName = ;
 			let StudentGrade = 100;
 			let StudentLetterGrade = 'A+';
 			let ClassName = '';
@@ -69,36 +70,86 @@
 				if (StudentGrade > 100) {
 					StudentGrade = 100
 				}
-				const GradeBox = document.getElementById("GradeBox");
+				let GradeBox = document.getElementById("GradeBox");
 				
 				GradeBox.value = StudentLetterGrade
 				
 			}
 			
 			function saveStudentData() {
-				let myData = window.localStorage;
-				localStorage.setItem("StudentLetterGrade", StudentLetterGrade)
-				localStorage.setItem("StudentGrade", StudentGrade)
-				localStorage.setItem("StudentFirstName", StudentFirstName)
-				localStorage.setItem("StudentLastName", StudentLastName)
-				console.log("Saved student data to client!")
-				alert("Student data has been saved.")
+				let mySavedData = window.localStorage
+				if (localStorage.getItem("loadedStudent") && localStorage.getItem("loadedStudent" + "'s grade")) {
+					let studentName = localStorage.getItem("loadedStudent")
+					if (localStorage.getItem("studentName") && localStorage.getItem("studentName" + "'s grade")) {
+						
+					}else{
+						alert("Student found but couldn't be loaded")	
+					}
+				}else{
+					alert("Error Code 404\nHow to solve:\nCheck if student exists\nCheck if student is saved in localStorage")	
+				}
+			}
+			function addStudent() {
+				let studentFirstName = document.getElementById("studentFirstNameBox").value
+				let studentLastName = document.getElementById("studentLastNameBox").value
+				let mySavedData = window.localStorage
+				localStorage.setItem(studentFirstName + studentLastName, studentFirstName)
+				localStorage.setItem(studentFirstName + studentLastName + "'s grade", StudentGrade)
+				
+			}
+			function loadStudent() {
+				let mySavedData = window.localStorage
+				let studentFirstName = document.getElementById("studentFirstNameBox").value
+				let studentLastName = document.getElementById("studentLastNameBox").value
+				let final = studentFirstName + studentLastName
+				if (final == localStorage.getItem(final)) {
+					if (localStorage.getItem(final + "'s grade")) {
+						localStorage.setItem("loadedStudent", final)
+						localStorage.setItem("loadedStudentGrade", final + "'s grade")
+						alert("Successfully loaded student.")
+					}else{
+						alert("Successfully loaded student but couldn't get their grade.")
+					}
+				}else{
+					alert("Student information is either corrupt or incorrect")
+				}
+			}
+			function unloadStudent() {
+				let mySavedData = window.localStorage
+				if (localStorage.getItem("loadedStudent") && localStorage.getItem("loadedStudent" + "'s grade")) {
+					localStorage.removeItem("loadedStudent")
+					localStorage.removeItem("loadedStudentGrade")
+				}else{
+					alert("Student was not loaded.")
+				}
+			}
+			function removeStudent() {
+				let mySavedData = window.localStorage
+				let studentFirstName = document.getElementById("studentFirstNameBox").value
+				let studentLastName = document.getElementById("studentLastNameBox").value
+				if (localStorage.getItem(studentFirstName + studentLastName) && localStorage.getItem(studentFirstName + studentLastName + "'s grade")) {
+					localStorage.removeItem(studentFirstName + studentLastName)
+					localStorage.removeItem(studentFirstName + studentLastName + "'s grade")
+					alert("Successfully removed student " + studentFirstName + ", " + studentLastName)
+				}else{
+					alert("Error Code 404\nHow to solve:\nCheck if student exists\nCheck if student is saved in localStorage")
+				}
 			}
 		</script>
 		Welcome to to the Polaris School Administration system.
 	</header>
-	<style>
-		body {
-			background-color: #0091FF;
-		}
-	</style>
 	
-	<p>
+	<p style="font-family:verdana">
 		Student First Name: <input id='studentFirstNameBox' type='text'/>
 		Student Last Name: <input id='studentLastNameBox' type='text'/>
 		Points: <input id='pointsBox' type='text'/>
 		<button onclick=addPoints();>Add points to student</button>
 		<button onclick=takePoints();>Deduct points from student</button>
 		<input id='GradeBox' type='text' disabled/>
+		<button id="addStudent" type="button" onclick="addStudent()">Click to add a student</button>
+		<button id="removeStudent" type="button" onclick="removeStudent()">Remove student</button>
+		<button id="loadStudent" type="button" onclick="loadStudent()">Load student</button>
+		<button id="unloadStudent" type="button" onclick="unloadStudent()">Unload a student</button>
+		
 	</p>
 </html>
